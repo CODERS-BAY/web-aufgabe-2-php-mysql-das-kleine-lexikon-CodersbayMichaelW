@@ -1,0 +1,117 @@
+/* colors */
+:root {
+    --black: rgb(0, 0, 0);
+    --dark: rgb(50, 50, 50);
+    --grey: rgb(240, 240, 240);
+    --white: rgb(255, 255, 255);
+    --cyan: rgb(0, 255, 255);
+}
+
+/* -------------------------------------------- */
+/* main */
+/* h1 */
+.my-title {
+    text-align: center;
+    font-size: 4rem;
+    margin-top: 7rem;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    
+}
+
+/* Animation */
+.anim-typewriter, .anim-typewriter2 {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); 
+    border-right: 2px solid rgba(255,255,255,.75);
+    padding-right: 0.2rem;
+    white-space: nowrap;
+    overflow: hidden;  
+    animation:  typewriter 1.8s steps(44) 0.5s 1 normal both,
+                blinkTextCursor 1500ms steps(44) 2;
+}
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 6.5em; }
+}
+@keyframes blinkTextCursor {
+  0% { border-right-color: var(--dark); }
+  50% { border-right-color: transparent; }
+  100% { border-right-color: var(--dark); }
+}
+.anim-typewriter2 { 
+    animation:  typewriter2 2.5s steps(44) 0.5s 1 normal both,
+                blinkTextCursor2 1500ms steps(44) 3;
+}
+@keyframes typewriter2 {
+  from { width: 0; }
+  to { width: 12.4em; }
+}
+@keyframes blinkTextCursor2 {
+  0% { border-right-color: var(--dark); }
+  50% { border-right-color: transparent; }
+  100% { border-right-color: var(--dark); }
+}
+
+
+
+/* pictures */
+.my-picture-section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+.my-picture-div {
+    width: 90%;
+    margin-left: 5%;
+    background-color: var(--dark);
+    padding: 0.2rem 0.2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px rgb(204, 204, 204);
+}
+img {
+    width: 100%;
+    border-radius: 10px;
+}
+.my-card-button {
+    margin-top: 0.5rem;
+    width: 80%;
+    background-color: var(--dark);
+    border: 1px solid var(--dark);
+    color: white;
+    font-size: 2rem;
+    font-family: 'Dancing Script', cursive;
+}
+.my-card-text {
+    color: var(--grey);
+    margin: 1rem 10px;
+}
+
+/* Modal */
+.my-modal-content {
+    background-color: var(--dark) !important;
+    color: var(--grey) !important;
+    border-radius: 20px !important;
+}
+.my-close-btn {
+    color: var(--white) !important;
+}
+
+@media (min-width: 40rem) {
+    .my-picture-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .my-picture-div {
+        width: 22%;
+        height: auto;
+        margin-left: 0;
+    }
+    .my-card-button:hover {
+        border: 1px solid rgb(188, 253, 255);
+        cursor: pointer;
+    }
+}
