@@ -85,11 +85,5 @@ if (!empty($_POST)) {
     if ($result) {
         $output .= include('../inc/dataTable.inc.php');
     }
-    echo $output;
-
 }
-
-
-
-
 ?>

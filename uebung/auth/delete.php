@@ -35,13 +35,14 @@ if(!empty($_POST)) {
 
     if ($result) {
         $output .= '<label class="text-success">' . $message . '</label>';
-        $result = $connection->query("SELECT * FROM content ORDER BY id DESC");
+        $result = $connection->query("SELECT * FROM content ORDER BY id ASC");
+        echo $output;
 
         while ($entry = $result->fetch_assoc()) {
             $output = include('../inc/dataTable.inc.php');
         }
     }
-    echo $output;
+    
 }
 
 ?>
