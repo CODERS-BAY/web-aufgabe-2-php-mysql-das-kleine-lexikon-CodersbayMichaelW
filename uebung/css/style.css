@@ -55,13 +55,11 @@ nav {
 /* pictures */
 .my-picture-section {
     text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
     margin-top: 3rem;
 }
 .my-picture-div {
     width: 90%;
+    height: max-content;
     margin-left: 5%;
     background-color: var(--dark);
     padding: 0.2rem 0.2rem;
@@ -98,15 +96,33 @@ img {
     color: var(--white) !important;
 }
 
-@media (min-width: 40rem) {
+@media (min-width: 600px) {
     .my-picture-section {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    /* pictures  */
+    .my-picture-div {
+        width: 40%;
+        margin-left: 0;
+    }
+    .my-card-button:hover {
+        border: 1px solid rgb(188, 253, 255);
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 1100px) {
+    .my-picture-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
     }
     .my-picture-div {
         width: 22%;
-        height: auto;
         margin-left: 0;
     }
     .my-card-button:hover {
@@ -116,6 +132,7 @@ img {
 }
 
 @media (min-width: 1000px) {
+    /* header animation */
     .anim-typewriter2 {
         position: relative;
         left: 50%;
@@ -135,5 +152,6 @@ img {
     @keyframes typewriter2 {
         from { width: 0; }
         to { width: 12.4em; }
-      }
+    }
 }
+
