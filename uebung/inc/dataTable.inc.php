@@ -3,7 +3,7 @@
         <tbody>
             <?php
             include("login.inc.php");
-            $result = $connection->query("SELECT id, title FROM content ORDER BY id DESC");
+            $result = $connection->query("SELECT id, title FROM content ORDER BY id ASC");
             while($entry = $result->fetch_assoc()) {
                 if(mb_detect_encoding($entry['title']) != 'UTF-8' || 'ASCII') {
                     $entry['title'] = utf8_encode($entry['title']);
