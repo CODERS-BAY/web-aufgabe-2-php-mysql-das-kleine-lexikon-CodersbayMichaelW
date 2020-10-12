@@ -20,6 +20,7 @@ if (isset($_GET['login'])) {
                     $_SESSION['username'] = $username;
                     //redirect to secret.php
                     $location .= "secret.php";
+                    header($location);
                 }
             }
         } 

@@ -31,7 +31,7 @@ nav {
     border-right: 2px solid rgba(255,255,255,.75);
     padding-right: 0.2rem;
     white-space: nowrap;
-    overflow: hidden;  
+    overflow-x: clip;  
     animation:  typewriter 1.8s steps(44) 0.5s 1 normal both,
                 blinkTextCursor 1500ms steps(44) 2;
 }
@@ -44,13 +44,6 @@ nav {
   50% { border-right-color: transparent; }
   100% { border-right-color: var(--dark); }
 }
-@keyframes blinkTextCursor2 {
-  0% { border-right-color: var(--dark); }
-  50% { border-right-color: transparent; }
-  100% { border-right-color: var(--dark); }
-}
-
-
 
 /* pictures */
 .my-picture-section {
@@ -94,6 +87,25 @@ img {
 }
 .my-close-btn {
     color: var(--white) !important;
+}
+
+/* carousel */
+.carousel {
+    width: 50% !important;
+    margin-left: 25%;
+}
+.carousel-caption button, .carousel-caption p {
+    background-color: rgba(0, 0, 0, 0.65);
+}
+.carousel-caption button {
+    width: max-content;
+    margin-bottom: 0.5rem;
+}
+.carousel-caption p {
+    text-shadow: 0 0 1px var(--white);
+}
+.carousel-item img {
+    max-height: 70vh;
 }
 
 @media (min-width: 600px) {
@@ -140,18 +152,22 @@ img {
         border-right: 2px solid rgba(255,255,255,.75);
         padding-right: 0.2rem;
         white-space: nowrap;
-        overflow: hidden;  
+        overflow-x: clip;  
         animation:  typewriter 1.8s steps(44) 0.5s 1 normal both,
                     blinkTextCursor 1500ms steps(44) 2;
     }
     .anim-typewriter2 { 
-        animation:  typewriter2 2.5s steps(44) 0.5s 1 normal both,
-                    blinkTextCursor2 1500ms steps(44) 2.5;
+        animation:  typewriter2 2.5s steps(132) 0.5s 1 normal both,
+                    blinkTextCursor2 1500ms steps(132) 2.5;
     }
-
     @keyframes typewriter2 {
         from { width: 0; }
         to { width: 12.4em; }
+    }
+    @keyframes blinkTextCursor2 {
+        0% { border-right-color: var(--dark); }
+        50% { border-right-color: transparent; }
+        100% { border-right-color: var(--dark); }
     }
 }
 

@@ -31,46 +31,107 @@ include("auth.php");
         <!-- Here could be your content -->
         <h1 class="my-title anim-typewriter2">Here could be your content</h1>
 
-        <article class="my-container">
-            <section class="my-picture-section">
+        <!-- Generate Carousel -->
+        <article>
+            <?php 
+                include("../inc/login.inc.php");
+                $query = "SELECT id, title, teaser, imgpath FROM content";
+                $result = $connection->query($query);
+                $result2 = $connection->query($query);
+                $len = $result->num_rows;
+            ?>
+            <!-- generate the bars at the bottom -->
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    
+            <?php $count = 0;
+            while($row = $result->fetch_assoc()) {
+                if ($row['imgpath']) {
+                    if ($count == 0) { ?>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $count ?>" class="active"></li>
+                    <?php }
+                    else { ?>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $count ?>"></li>
+                    <?php }
+                    $count++;
+                } 
+            } ?>
+                </ol>
+
+            <!-- Carousel content -> img -->
+            <div class="carousel-inner">
+            <?php $count = 0; 
+            while($row = $result2->fetch_assoc()) { 
+                if ($row['imgpath']) {
+                    if ($count == 0) { ?>
+                        <div class="carousel-item active">
+                            <?php $count++; ?>
+                    <?php } 
+                    else { ?>
+                        <div class="carousel-item">
+                    <?php } ?>
+                            <img class="carousel-image" src="../img/<?php echo $row['imgpath'] ?>" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <button type="button" class="my-card-button ajaxModalSecret" data-toggle="modal" data-id="<?php echo $row['id'] ?>"><?php echo $row['title'] ?></button>
+                                <p><?php echo $row['teaser'] ?></p>
+                            </div>
+                        </div>
+                <?php } 
+                }?>
+            <div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </article>
+
+        <!-- --------------------------- Cards Article Begin------------------------------------- -->
+        <!-- <article class="my-container">
+            <section class="my-picture-section"> -->
                 <?php
-                include('../inc/login.inc.php');
+                // include('../inc/login.inc.php');
 
-                // Query statement
-                $qeury = "SELECT id, title, teaser, imgpath FROM content";
-                $result = $connection->query($qeury);
+                // // Query statement
+                // $qeury = "SELECT id, title, teaser, imgpath FROM content";
+                // $result = $connection->query($qeury);
 
-                // Card Beginn
-                while($row = $result->fetch_assoc()) { ?>
+                // // Card Beginn
+                // while($row = $result->fetch_assoc()) { ?>
                 <!-- create div where all the elements are put in -->
-                <div class="my-picture-div" id="<?php echo $row['id'] ?>">
+                <!-- <div class="my-picture-div" id="<?php // echo $row['id'] ?>"> -->
 
                     <!-- Picture is available -->
-                    <?php if($row['imgpath']) { ?>
-                        <img class="my-pic" src="../img/<?php echo $row['imgpath'] ?>" alt="">
-                    <?php } ?>
+                    <!-- <?php // if($row['imgpath']) { ?> -->
+                        <!-- <img class="my-pic" src="../img/<?php // echo $row['imgpath'] ?>" alt=""> -->
+                    <?php // } ?>
 
-                    <div class="my-card-body">
+                    <!-- <div class="my-card-body"> -->
                         <!-- Button  -->
-                        <button type="button" class="my-card-button ajaxModalSecret" data-toggle="modal" data-id="<?php echo $row['id'] ?>">
-                            <?php echo $row['title']; ?>
-                        </button>
+                        <!-- <button type="button" class="my-card-button ajaxModalSecret" data-toggle="modal" data-id="<? // php echo $row['id'] ?>"> -->
+                            <!-- <?php // echo $row['title']; ?> -->
+                        <!-- </button> -->
 
                         <!-- Text -->
-                        <p class="my-card-text">
-                            <?php echo $row['teaser']; ?>
-                        </p>
-                    </div>
+                        <!-- <p class="my-card-text"> -->
+                            <!-- <?php // echo $row['teaser']; ?> -->
+                        <!-- </p> -->
+                    <!-- </div> -->
 
-                </div>
+                <!-- </div> -->
                 <!-- Card End -->
 
-                <?php }
+                <?php // }
                 // var_dump($result);
-                $connection->close(); // close connection to the database
-                ?>
-            </section>
-        </article>
+                // $connection->close(); // close connection to the database
+                // ?>
+            <!-- </section> -->
+        <!-- </article> -->
+        <!-- --------------------------- Cards Article End------------------------------------- -->
+
 
         <!-- Modal Cards -->
         <div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="lexikon-entry" aria-hidden="true">
