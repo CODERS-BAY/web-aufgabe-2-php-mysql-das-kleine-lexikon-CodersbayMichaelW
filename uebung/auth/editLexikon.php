@@ -64,8 +64,8 @@ define("SECURE", true);
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="description">File Upload</label>
-                                    <input type="file" class="form-control-file" name="fileUpload" id="fileUpload">
+                                    <label for="fileUpload">File Upload</label>
+                                    <input type="file" class="form-control-file" name="fileUpload">
                                 </div>
 
                                 <div class="modal-footer">

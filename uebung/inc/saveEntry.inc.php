@@ -40,7 +40,7 @@ if ($uploadOK == 0) {
     echo "Sorry, your file was not uploaded.";
 }
 else {
-    if (move_uploaded_file($_FILES['fileUpload']['temp_name'], $target_file)) {
+    if (move_uploaded_file($_FILES['fileUpload']['tmp_name'], $target_file)) {
         echo "The file " . basename( $_FILES['fileUpload']['name']). " has been uploaded.";
     }
     else {
